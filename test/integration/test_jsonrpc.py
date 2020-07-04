@@ -16,12 +16,12 @@ def test_sprintd():
     config_text = SprintConfig.slurp_config_file(config.sprint_conf)
     network = 'mainnet'
     is_testnet = False
-    genesis_hash = u'00000ffd590b1485b3caadc19b22e6379c733355108f107a430458cdf3407ab6'
+    genesis_hash = u'000008727242e05ff03271acbb96dee81385e662845353e50618cff84f314253'
     for line in config_text.split("\n"):
         if line.startswith('testnet=1'):
             network = 'testnet'
             is_testnet = True
-            genesis_hash = u'00000bafbc94add76cb75e2ec92894837288a481e5c005f6563d91623bf8bc2c'
+            genesis_hash = u'000008727242e05ff03271acbb96dee81385e662845353e50618cff84f314253'
 
     creds = SprintConfig.get_rpc_creds(config_text, network)
     sprintd = SprintDaemon(**creds)
@@ -29,7 +29,7 @@ def test_sprintd():
 
     assert hasattr(sprintd, 'rpc_connection')
 
-    # Sprint testnet block 0 hash == 00000bafbc94add76cb75e2ec92894837288a481e5c005f6563d91623bf8bc2c
+    # Sprint testnet block 0 hash == 000008727242e05ff03271acbb96dee81385e662845353e50618cff84f314253
     # test commands without arguments
     info = sprintd.rpc_command('getinfo')
     info_keys = [
