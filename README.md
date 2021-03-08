@@ -32,6 +32,7 @@ Clone the Sentinel repo and install Python dependencies.
     $ git clone https://github.com/Sprint-Core/sentinel.git && cd sentinel
     $ virtualenv ./venv
     $ ./venv/bin/pip install -r requirements.txt
+    $ mkdir database
 
 ### 3. Set up Cron
 
